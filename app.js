@@ -26,10 +26,12 @@ app.use(cors({
 
 app.use(cookieParser());
 const userRouter = require("./router/userRouter");
+const restaurantRouter = require("./router/restaurantRouter");
 
 app.use(express.json());
 
 app.use("/api/auth/",userRouter);
+app.use("/api/restaurant/",restaurantRouter);
 
 app.listen(3000,()=>{
     console.log("Server started sucsessfully");

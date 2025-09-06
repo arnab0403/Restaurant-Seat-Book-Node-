@@ -164,4 +164,36 @@ const logout = (req, res) => {
   }
 };
 
-module.exports={signUp,login,userDetailsByToken,logout};
+
+const verifyOtp = async (req,res)=>{
+    try {
+        const {email,otp}=req.body;
+        const userRes = await UserModel.findOne({email});
+        const userOtp = userRes.otp;
+
+        if (userOtp!==otp) {
+            return res.status(404).json({
+                message:"wrong otp",
+                status:"failed"
+            });
+        }
+
+        userRes.isVerified=true;
+        userRes.otp=undefined;
+
+        userRes.save();
+
+        res.status(200).json({
+            message:"otp confirmed",
+            status:"success"
+        })
+    } catch (error) {
+        console.log(error);
+        res.status(500).json({
+        message: "Internal Server Error",
+        status: "failed"
+        });
+    }
+}
+
+module.exports={signUp,login,userDetailsByToken,logout,verifyOtp};
