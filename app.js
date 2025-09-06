@@ -1,8 +1,10 @@
 // requirments
-
 const express = require("express");
 const mongoose=require("mongoose");
 const dotnev = require("dotenv");
+const cors = require("cors");
+const cookieParser= require("cookie-parser");
+
 
 // configs
 dotnev.config();
@@ -17,7 +19,12 @@ mongoose.connect(dbLink)
     console.log("DB Connected");
 });
 
+app.use(cors({
+  origin: "http://localhost:5173", // frontend URL
+  credentials: true                // 👈 allow cookies
+}));
 
+app.use(cookieParser());
 const userRouter = require("./router/userRouter");
 
 app.use(express.json());

@@ -14,11 +14,24 @@ const user ={
         type: String,
         required: true 
     },
-    phone: { type: String },
+    phone: { 
+        type: String,
+        required:true 
+    },
+    imageUrl:{
+        type:String
+    },
     role: { 
         type: String, 
         enum: ["user", "admin"], 
         default: "user" 
+    },
+    isVerified:{
+        type:Boolean,
+        default:false
+    },
+    otp:{
+        type:String,
     }
 }
 const userSchema = new mongoose.Schema(user);
