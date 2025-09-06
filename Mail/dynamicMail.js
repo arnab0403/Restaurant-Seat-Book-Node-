@@ -17,7 +17,7 @@ async function otpSend(userMail,userName,otp){
     let htmlContent = `
           <div style="font-family: Arial, sans-serif; max-width: 600px; margin: auto; border: 1px solid #e0e0e0; border-radius: 8px; overflow: hidden;">
             <!-- Header -->
-            <div style="background: linear-gradient(90deg, #000000, #facc15); padding: 20px; text-align: center; color: white;">
+            <div style="background:#rgba(251, 205, 19, 1) padding: 20px; text-align: center; color: white;">
                 <h1 style="margin: 0;">🍽️ Welcome to DineQ</h1>
             </div>
 
