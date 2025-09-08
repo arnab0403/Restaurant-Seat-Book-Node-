@@ -184,7 +184,7 @@ const verifyOtp = async (req,res)=>{
         userRes.save();
 
         res.status(200).json({
-            message:"otp confirmed",
+            message:"otp confirmed, user verified",
             status:"success"
         })
     } catch (error) {
