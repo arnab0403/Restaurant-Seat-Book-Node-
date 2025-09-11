@@ -7,16 +7,17 @@ const addRestaurant =async (req,res) =>{
         const {
         name,
         description,
-        place,
+        address,
         openTime,
         menu,
         coordinates,
         slotTimes,
         totalSeats
         } = restaurant;
-
+        console.log(req.body);
+  
         // validate required fields
-        if (!name || !place || !coordinates || !coordinates.latitude || !coordinates.longitude || !totalSeats) {
+        if (!name || !address || !coordinates || !totalSeats) {
         return res.status(400).json({
             message: "Missing required fields",
             status: "failed"

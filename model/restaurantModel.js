@@ -34,13 +34,13 @@ const restaurant = {
     type:String,
     required:true
   },
-  menu: [
+  menuItems: [
     {
       menu: { type: String, required: true },
       price: { type: Number, required: true },
     }
   ],
-  slotTimes: [
+  slotTime: [
     {
       time: { type: String, required: true },
       status: { 
@@ -54,9 +54,9 @@ const restaurant = {
     type: Number, 
     required: true 
   },
-  imageUrl:{
+  image:[{
     type:String
-  }
+  }]
 };
 
 const restaurantSchema = new mongoose.Schema(restaurant);
@@ -64,19 +64,3 @@ const restaurantSchema = new mongoose.Schema(restaurant);
 const RestaurantModel = mongoose.model("Restaurant",restaurantSchema); 
 
 module.exports = RestaurantModel;
-
-//  const resDetailsJson={
-//         name:"",
-//         description:"",
-//         state:"",
-//         city:"",
-//         address:"",
-//         city:"",
-//         cordinates:"",
-//         openTime:"",
-//         closeTime:"",
-//         menuItems:[{menu:"",price:""}],
-//         totalSeats:"",
-//         slotTime:[],
-//         image:[]
-//     }
