@@ -7,26 +7,39 @@ const restaurant = {
     required: true,
   },
   description: { 
-    type: String 
+    type: String,
+    require:true 
   },
-  place: {
+  state:{
+    type:String,
+    require:true
+  },
+  city: {
     type: String,
     required: true,
   },
+  address:{
+    type:String,
+    required:true
+  },
+  coordinates: {
+    type:String,
+    required:true
+  },
   openTime: { 
-    type: String 
+    type: String,
+    required:true 
+  },
+  closeTime:{
+    type:String,
+    required:true
   },
   menu: [
     {
-      item: { type: String, required: true },
+      menu: { type: String, required: true },
       price: { type: Number, required: true },
-      description: { type: String }
     }
   ],
-  coordinates: {
-    latitude: { type: Number, required: true },
-    longitude: { type: Number, required: true }
-  },
   slotTimes: [
     {
       time: { type: String, required: true },
@@ -51,3 +64,19 @@ const restaurantSchema = new mongoose.Schema(restaurant);
 const RestaurantModel = mongoose.model("Restaurant",restaurantSchema); 
 
 module.exports = RestaurantModel;
+
+//  const resDetailsJson={
+//         name:"",
+//         description:"",
+//         state:"",
+//         city:"",
+//         address:"",
+//         city:"",
+//         cordinates:"",
+//         openTime:"",
+//         closeTime:"",
+//         menuItems:[{menu:"",price:""}],
+//         totalSeats:"",
+//         slotTime:[],
+//         image:[]
+//     }
