@@ -1,10 +1,12 @@
 const express = require("express");
-const { addRestaurant } = require("../controller/restaurantController");
+const { addRestaurant,getAllRestaurants,getRestaurantsDetailsById } = require("../controller/restaurantController");
  
 const restaurantRouter = express.Router();
 
 restaurantRouter
-    .post("/add",addRestaurant);
+    .post("/add",addRestaurant)
+    .get("/",getAllRestaurants)
+    .get("/:id",getRestaurantsDetailsById);
 
 
 module.exports=restaurantRouter;
